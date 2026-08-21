@@ -1,6 +1,8 @@
+import HyruleCategory from "./HyruleCategory"
+
 function Materials() {
     return(
-        <h1>Materiales</h1>
+        <HyruleCategory category="materials" title="Materiales" />
     )
 }
 

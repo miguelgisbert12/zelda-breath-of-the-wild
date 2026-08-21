@@ -1,6 +1,8 @@
+import HyruleCategory from "./HyruleCategory"
+
 function Treasures() {
     return(
-        <h1>Tesoros</h1>
+        <HyruleCategory category="treasure" title="Tesoros" />
     )
 }
 
