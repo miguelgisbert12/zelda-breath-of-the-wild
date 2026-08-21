@@ -1,6 +1,8 @@
+import HyruleCategory from "./HyruleCategory"
+
 function Creatures() {
     return(
-        <h1>Criaturas</h1>
+        <HyruleCategory category="creatures" title="Criaturas" />
     )
 }
 

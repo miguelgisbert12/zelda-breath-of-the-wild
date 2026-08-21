@@ -1,6 +1,8 @@
+import HyruleCategory from "./HyruleCategory"
+
 function Equipment() {
     return(
-        <h1>Equipamiento</h1>
+        <HyruleCategory category="equipment" title="Equipo" />
     )
 }
 
