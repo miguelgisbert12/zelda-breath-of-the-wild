@@ -1,5 +1,11 @@
+import './Home.css'
+
 function Home() {
-  return <h1>Inicio</h1>
+  return(
+    <>
+      <div className='header__background'></div>
+    </>
+  ) 
 }
 
 export default Home

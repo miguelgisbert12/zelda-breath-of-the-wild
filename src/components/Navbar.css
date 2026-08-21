@@ -1,0 +1,60 @@
+.navbar {
+    background-color: var(--color-primary);
+    padding: var(--space-md) var(--space-xl);
+    color: var(--color-text-tertiary);
+}
+
+.navbar__container {
+    width: 80%;
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar__navigation {
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+}
+
+.navbar__brand {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+}
+
+.navbar__logo {
+    width: 50px;
+}
+
+.navbar__title {
+    font-family: var(--font-secondary);
+    font-size: var(--text-3xl);
+    font-weight: var(--font-semibold);
+}
+
+.navbar__item {
+    border: none;
+    background-color: transparent;
+    color: var(--color-text-tertiary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.navbar__item:hover {
+    color: var(--color-gray300);
+}
+
+.navbar__item-hyrule:hover .icon__arrow-dropdown {
+    transform: rotate(0deg);
+}
+
+.icon__arrow-dropdown {
+    width: 18px;
+    height: 20px;
+    transform: rotate(-90deg);
+    transition: transform 0.3s ease;
+}

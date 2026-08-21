@@ -1,0 +1,73 @@
+/* Variables CSS reutilizables de la app */
+
+:root {
+
+    /* Paleta de colores */
+    --color-primary: #3D84A8;
+    --color-primary-hover: #2F6C8F;
+    --color-secondary: #5B8C5A;
+    --color-accent: #D6B25E;
+    --color-background: #F7F5F0;
+    --color-surface: #FFFFFF;
+    --color-text: #2B2B2B;
+    --color-text-secondary: #6C757D;
+    --color-text-tertiary: #FFFFFF;
+    --color-border: #E4E6E8;
+    --color-success: #4CAF50;
+    --color-error: #D9534F;
+    --color-warning: #F4B400;
+
+    /* Paleta de grises */
+    --color-gray50: #F8F9FA;
+    --color-gray100: #F1F3F5;
+    --color-gray200: #E9ECEF;
+    --color-gray300: #DEE2E6;
+    --color-gray400: #CED4DA;
+    --color-gray500: #ADB5BD;
+    --color-gray600: #6C757D;
+    --color-gray700: #495057;
+    --color-gray800: #343A40;
+    --color-gray900: #212529;
+
+    /* Tipografía */
+    --font-primary: 'Inter', sans-serif;
+    --font-secondary: 'Cinzel', serif;
+
+    /* Tamaños de fuente */
+    --text-xs: 12px;
+    --text-sm: 14px;
+    --text-md: 16px;
+    --text-lg: 18px;
+    --text-xl: 20px;
+    --text-2xl: 24px;
+    --text-3xl: 30px;
+    --text-4xl: 36px;
+    --text-5xl: 48px;
+    --text-6xl: 60px;
+
+    /* Pesos de fuente */
+    --font-regular: 400;
+    --font-medium: 500;
+    --font-semibold: 600;
+    --font-bold: 700;
+
+    /* Altura de línea */
+    --leading-tight: 1.2;
+    --leading-normal: 1.5;
+    --leading-relaxed: 1.7;
+
+    /* Espaciado */
+    --space-xs: 4px;
+    --space-sm: 8px;
+    --space-md: 16px;
+    --space-lg: 24px;
+    --space-xl: 32px;
+    --space-2xl: 48px;
+    --space-3xl: 64px;
+
+    /* Bordes */
+    --radius-sm: 5px;
+    --radius-md: 10px;
+    --radius-lg: 16px;
+    --radius-full: 50%;
+}
