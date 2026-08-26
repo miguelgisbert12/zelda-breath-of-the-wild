@@ -1,21 +1,22 @@
-import { useState } from "react";
 import { Link } from 'react-router-dom'
 
 import flecha from '../assets/icons/flecha_desplegable.png'
 
-function HyruleMenu() {
-
-    const [isMenuOpen, setIsMenuOpen] = useState(false)
+function HyruleMenu({ isOpen, onToggle }) {
 
     return(
         
         <div className="navbar__menu">
-            <button type="button" className="navbar__item navbar__item-hyrule" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            <button 
+                type="button" 
+                className={`navbar__item navbar__item-hyrule ${isOpen ? 'navbar__item--open' : ''}`} 
+                onClick={onToggle}>
+
                 <span>Hyrule</span>
-                <img className="icon__arrow-dropdown" src={flecha} alt="Icono flecha desplegable" />
+                <img className="icon__arrow-dropdown" src={flecha} alt="" />
             </button>
 
-            {isMenuOpen && (
+            {isOpen && (
                 <div className="navbar__dropdown">
                     <Link to="/hyrule/enemigos">Enemigos</Link>
                     <Link to="/hyrule/criaturas">Criaturas</Link>

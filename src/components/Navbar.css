@@ -48,7 +48,11 @@
     color: var(--color-gray300);
 }
 
-.navbar__item-hyrule:hover .icon__arrow-dropdown {
+.navbar__item--open {
+    color: var(--color-gray300);
+}
+
+.navbar__item--open .icon__arrow-dropdown {
     transform: rotate(0deg);
 }
 
@@ -57,4 +61,104 @@
     height: 20px;
     transform: rotate(-90deg);
     transition: transform 0.3s ease;
+}
+
+.navbar__menu {
+    position: relative;
+}
+
+/* Menú desplegable */
+
+.navbar__dropdown {
+    position: absolute;
+    left: 0;
+    margin-top: var(--space-sm);
+    background-color: var(--color-primary);
+    min-width: 200px;
+    z-index: 100;
+    border-radius: 0px 0px var(--radius-md) var(--radius-md);
+    padding: var(--space-sm);
+}
+
+.navbar__dropdown a {
+    display: block;
+    padding: var(--space-sm) var(--space-md);
+}
+
+.navbar__dropdown a:hover {
+    color: var(--color-gray300);
+}
+
+/* Menú de búsqueda -- contenido común de ambas versiones */
+
+.search-menu__form {
+    display: flex;
+    gap: var(--space-md);
+}
+
+.search-menu__input {
+    width: 80%;
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-md);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-gray600);
+    font-size: var(--text-xl);
+}
+
+.search-menu__input:focus {
+    border: 2px solid var(--color-primary);
+    outline: none;
+}
+
+.search-menu__button {
+    width: fit-content;
+    max-width: 130px;
+    padding: var(--space-sm) var(--space-xl);
+    border-radius: var(--radius-md);
+    border: none;
+    background-color: var(--color-primary);
+    color: var(--color-text-tertiary);
+    cursor: pointer;
+}
+
+.search-menu__button:hover {
+    background-color: var(--color-primary-hover);
+}
+
+/* Menú de búsqueda -- versión de Inicio 100% ancho */
+
+.search-menu--home {
+    width: 100%;
+    padding: var(--space-md);
+    margin-bottom: var(--space-md);
+}
+
+.search-menu--home .search-menu__container {
+    margin-inline: auto;
+}
+
+/* Menú de búsqueda -- versión Desplegable */
+
+.search-menu--dropdown {
+    position: absolute;
+    margin-top: var(--space-lg);
+    z-index: 100;
+    right: 0;
+    width: 500px;
+    background-color: var(--color-primary);
+    padding: var(--space-md);
+    border-radius: 0px 0px var(--radius-md) var(--radius-md);
+}
+
+.search-menu--dropdown h3 {
+    margin: 0px;
+}
+
+.search-menu--dropdown button {
+    background-color: var(--color-secondary);
+    color: var(--color-text);
+}
+
+.search-menu--dropdown button:hover {
+    background-color: var(--color-secondary-hover);
 }

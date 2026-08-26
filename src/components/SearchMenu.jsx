@@ -1,28 +1,64 @@
-import { useState } from "react";
 
-function SearchMenu() {
-    
-    const [isSearchMenuOpen, setIsSearchMenuOpen] = useState(false)
+function SearchMenu({ isOpen, onToggle, variant = 'dropdown' }) {
+
+    const isHome = variant === 'home'
+
+    if(isHome) {
+
+        return(
+            <section className="search-menu search-menu--home">
+                <div className="navbar__menu__container">
+                    <h2>Buscador de Hyrule</h2>
+
+                    <form className="search-menu__form">
+                        <input 
+                            className="search-menu__input"
+                            type="search" 
+                            placeholder="Escribe aquí..."   
+                        />
+
+                        <button className="search-menu__button" type="submit">
+                            Buscar
+                        </button>
+                    </form>
+                </div>
+            </section>
+        )
+    }
 
     return(
-        <>
-            <div className="navbar__menu">
-                <button type="button" className="navbar__item" onClick={() => setIsSearchMenuOpen(!isSearchMenuOpen)}>
-                    Buscar
-                </button>
+        <div className="navbar__menu">
+            <button 
+                type="button" 
+                className={`navbar__item ${isOpen ? 'navbar__item--open' : ''}`} 
+                onClick={onToggle}
+            >
+                Buscar
+            </button>
+            
+            {isOpen && (
+                <div className="search-menu search-menu--dropdown">
+                    <div className="search-menu__container">
 
-                {isSearchMenuOpen && (
-                    <div className="navbar__dropdown">
-                        <h3>Búsqueda avanzada</h3>
-                        <p>Escribe para buscar</p>
+                        <h3>Buscador de Hyrule</h3>
+                        <p>Busca cualquier elemento de la web</p>
 
-                        <input type="text" placeholder="Escribe aquí" />
+                        <form className="search-menu__form">
+                            <input 
+                                className="search-menu__input" 
+                                type="search" 
+                                placeholder="Escribe aquí..." 
+                            />
 
-                        <button type="button">Buscar</button>
+                            <button className="search-menu__button" type="submit">
+                                Buscar
+                            </button>
+                        </form>
                     </div>
-                )}
-            </div>
-        </>
+
+                </div>
+            )}
+        </div>
     )
 }
 

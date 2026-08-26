@@ -1,33 +1,63 @@
 import { Link } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
+import { useState } from 'react'
+
 import HyruleMenu from './HyruleMenu'
 import SearchMenu from './SearchMenu'
+
 import './Navbar.css'
 
 import logo from '../assets/logos/logo_zelda_header.png'
 
 function Navbar() {
 
+    const [openMenu, setOpenMenu] = useState(null)
+    const location = useLocation()
+
+    const isHome = location.pathname === '/'
+
+    const toggleMenu = (menu) => {
+        setOpenMenu((currentMenu) => 
+            currentMenu === menu ? null : menu,
+        )
+    }
+
     return(
+        <>
+            <nav className='navbar'>
 
-        <nav className='navbar'>
+                <div className='navbar__container'>
+                    <Link className='navbar__brand' to="/">
+                        <img className='navbar__logo' src={logo} alt="Logo Zelda BOTW" />
+                        <span className='navbar__title'>Zelda BOTW Compendium</span>
+                    </Link>
+                    
+                    <div className='navbar__navigation'>
+                        <Link className='navbar__item' to="/">Inicio</Link>
 
-            <div className='navbar__container'>
-                <Link className='navbar__brand' to="/">
-                    <img className='navbar__logo' src={logo} alt="Logo Zelda BOTW" />
-                    <span className='navbar__title'>Zelda BOTW Compendium</span>
-                </Link>
-                
-                <div className='navbar__navigation'>
-                    <Link className='navbar__item' to="/">Inicio</Link>
+                        <HyruleMenu
+                            isOpen={openMenu === 'hyrule'}
+                            onToggle={() => toggleMenu('hyrule')}
+                        />
 
-                    <HyruleMenu />
-                    <SearchMenu />
+                        {!isHome && (
+                            <SearchMenu 
+                                isOpen={openMenu === 'search'}
+                                onToggle={() => toggleMenu('search')}
+                            />
+                        )}
+
+                        <Link className="navbar__item" to="/login">Entrar</Link>
+                    </div>
                 </div>
 
-                <Link className="navbar__item" to="/login">Entrar</Link>
-            </div>
+            </nav>
 
-        </nav>
+            {isHome && (
+                <SearchMenu isOpen={true} variant="home" />
+            )}
+        </>
+
     )
 }
 
