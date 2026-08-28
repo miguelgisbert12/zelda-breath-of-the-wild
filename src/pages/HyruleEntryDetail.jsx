@@ -1,29 +1,23 @@
-import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getEntry } from "../services/zeldaApi";
+import { getEntryUrl } from "../services/zeldaApi";
+import useFetch from "../hooks/useFetch";
 
 function HyruleEntryDetail() {
 
     const { category, entryId } = useParams()
-    
-    const [entry, setEntry] = useState(null)
-    const [isLoading, setIsLoading] = useState(true)
-    const [error, setError] = useState(null)
 
-    useEffect(() => {
-        getEntry(entryId)
-        .then((data) => {
-            setEntry(data)
-        })
-        .catch((error) => {
-            console.error(error)
-            setError("No se ha podido cargar el elemento")
-        })
-        .finally(() => {
-            setIsLoading(false)
-        })
+    const url = getEntryUrl(entryId)
+    const result = useFetch(url)
 
-    }, [entryId])
+    const data = result.data
+    const isLoading = result.isLoading
+    const error = result.error
+
+    let entry = null
+
+    if(data) {
+        entry = data.data
+    }
 
     if(isLoading) {
         return(
@@ -33,20 +27,22 @@ function HyruleEntryDetail() {
 
     if(error) {
         return(
-            <p>{error}</p>
+            <p>No se ha podido cargar el elemento.</p>
         )
     }
 
     if(!entry) {
         return(
-            <p>Elemento no encontrado</p>
+            <p>Elemento no encontrado.</p>
         )
     }
 
     return(
         <>
             <h1>{entry.name}</h1>
+
             <img src={entry.image} alt={entry.name} />
+
             <p>{entry.description}</p>
             <p>Categoría: {category}</p>
         </>

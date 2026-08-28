@@ -1,27 +1,21 @@
-import { useEffect, useState } from "react";
-import { getCategory } from "../services/zeldaApi"
+import { getCategoryUrl } from "../services/zeldaApi"
+import useFetch from "../hooks/useFetch";
 import CompendiumCard from "../components/CompendiumCard"
 
 function HyruleCategory({ category, title }) {
-    const [entries, setEntries] = useState([])
-    const [isLoading, setIsLoading] = useState(true)
-    const [error, setError] = useState(null)
 
-    useEffect(() => {
-        getCategory(category)
-        .then((data) => {
-            console.log(data.data)
-            setEntries(data.data)
-        })
-        .catch((error) => {
-            console.error(error)
-            setError("No se han podido cargar los datos")
-        })
-        .finally(() => {
-            setIsLoading(false)
-        })
+    const url = getCategoryUrl(category)
+    const result = useFetch(url)
 
-    }, [category])
+    const data = result.data
+    const isLoading = result.isLoading
+    const error = result.error
+
+    let entries = []
+
+    if(data) {
+        entries = data.data
+    }
 
     if(isLoading) {
         return(
@@ -31,7 +25,7 @@ function HyruleCategory({ category, title }) {
 
     if(error) {
         return(
-            <p>{error}</p>
+            <p>No se han podido cargar los datos.</p>
         )
     }
 
@@ -43,7 +37,10 @@ function HyruleCategory({ category, title }) {
 
             <div>
                 {entries.map((entry) => (
-                    <CompendiumCard key={entry.id} entry={entry}/>
+                    <CompendiumCard 
+                        key={entry.id} 
+                        entry={entry}
+                    />
                 ))}
             </div>
         </>
