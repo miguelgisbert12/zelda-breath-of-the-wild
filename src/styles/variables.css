@@ -71,4 +71,7 @@
     --radius-md: 10px;
     --radius-lg: 16px;
     --radius-full: 50%;
+
+    /* Tamaños de contenedor */
+    --container-max-width: 2000px;
 }

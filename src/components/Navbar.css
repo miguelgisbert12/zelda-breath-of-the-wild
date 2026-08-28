@@ -4,9 +4,7 @@
     color: var(--color-text-tertiary);
 }
 
-.navbar__container {
-    width: 80%;
-    margin-inline: auto;
+.navbar > .container {
     display: flex;
     align-items: center;
     justify-content: space-between;

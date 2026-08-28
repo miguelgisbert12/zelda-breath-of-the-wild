@@ -4,6 +4,7 @@ import { useState } from 'react'
 
 import HyruleMenu from './HyruleMenu'
 import SearchMenu from './SearchMenu'
+import Container from './Container'
 
 import './Navbar.css'
 
@@ -26,7 +27,7 @@ function Navbar() {
         <>
             <nav className='navbar'>
 
-                <div className='navbar__container'>
+                <Container>
                     <Link className='navbar__brand' to="/">
                         <img className='navbar__logo' src={logo} alt="Logo Zelda BOTW" />
                         <span className='navbar__title'>Zelda BOTW Compendium</span>
@@ -49,7 +50,7 @@ function Navbar() {
 
                         <Link className="navbar__item" to="/login">Entrar</Link>
                     </div>
-                </div>
+                </Container>
 
             </nav>
 

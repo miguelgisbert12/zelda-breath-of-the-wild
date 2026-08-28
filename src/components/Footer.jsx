@@ -1,7 +1,13 @@
+import './Footer.css'
+
 function Footer() {
     return(
-        <footer>
-            <p>footer</p>
+        <footer className="footer">
+            <div className="footer__container">
+                <p className="footer__copyright">
+                    &copy; 2026 Zelda BOTW Compendium
+                </p>
+            </div>
         </footer>
     )
 }
