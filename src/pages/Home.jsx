@@ -1,6 +1,7 @@
 import Container from '../components/Container'
 import Hero from '../components/Hero'
 import HyruleCategories from '../components/HyruleCategories'
+import FeaturedEntries from '../components/FeaturedEntries'
 
 import './Home.css'
 
@@ -20,6 +21,8 @@ function Home() {
       <section className='home__featured'>
           <Container>
             <h2>Destacados</h2>
+
+            <FeaturedEntries />
           </Container>
       </section>
 

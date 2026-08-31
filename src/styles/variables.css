@@ -72,6 +72,11 @@
     --radius-lg: 16px;
     --radius-full: 50%;
 
+    /* Sombras */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.10);
+    --shadow-md: 0 4px 10px rgba(0, 0, 0, 0.15);
+    --shadow-lg: 0 8px 20px rgba(0, 0, 0, 0.20);
+
     /* Tamaños de contenedor */
     --container-max-width: 2000px;
 }

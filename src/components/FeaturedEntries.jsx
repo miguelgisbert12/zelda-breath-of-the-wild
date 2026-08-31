@@ -1,15 +1,16 @@
-import CompendiumCard from './CompendiumCard'
+import { featuredEntries } from '../utils/featuredEntries'
+import FeaturedEntry from './FeaturedEntry'
 
 import './FeaturedEntries.css'
 
-function FeaturedEntries({ entries }) {
-    
+function FeaturedEntries() {
+
     return(
         <div className='featured-entries'>
-            {entries.map((entry) => (
-                <CompendiumCard 
-                    key={entry.id}
-                    entry={entry}
+            {featuredEntries.map((featuredEntry) => (
+                <FeaturedEntry 
+                    key={featuredEntry.slug}
+                    slug={featuredEntry.slug}
                 />
             ))}
         </div>
