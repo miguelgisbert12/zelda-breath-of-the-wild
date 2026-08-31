@@ -21,7 +21,7 @@ function CompendiumCard({ entry }) {
 
                 <div className="compendium-card__content">
                     <h2 className="compendium-card__title">
-                        {entry.title}
+                        {entry.name}
                     </h2>
 
                     <p className="compendium-card__description">

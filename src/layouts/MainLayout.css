@@ -6,4 +6,6 @@
 
 .main-layout__content {
   flex: 1;
+  padding-top: var(--space-3xl);
+  padding-bottom: var(--space-3xl);
 }

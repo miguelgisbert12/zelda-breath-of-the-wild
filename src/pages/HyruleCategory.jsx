@@ -1,9 +1,17 @@
 import { getCategoryUrl } from "../services/zeldaApi"
+import { getCategoryConfig } from "../utils/categoryConfig";
+
 import useFetch from "../hooks/useFetch";
+
 import CompendiumCard from "../components/CompendiumCard"
+import Container from "../components/Container";
+import CategoryHeader from "../components/CategoryHeader";
 
-function HyruleCategory({ category, title }) {
+import './HyruleCategory.css'
 
+function HyruleCategory({ category }) {
+
+    const categoryConfig = getCategoryConfig(category)
     const url = getCategoryUrl(category)
     const result = useFetch(url)
 
@@ -30,20 +38,28 @@ function HyruleCategory({ category, title }) {
     }
 
     return(
-        <>
-            <h1>{title}</h1>
+        <section className="category">
 
-            <p>Elementos encontrados: {entries.length}</p>
+            <Container>
+                <CategoryHeader 
+                    title={categoryConfig.title}
+                    description={categoryConfig.description}
+                    count={entries.length}
+                />
 
-            <div>
-                {entries.map((entry) => (
-                    <CompendiumCard 
-                        key={entry.id} 
-                        entry={entry}
-                    />
-                ))}
-            </div>
-        </>
+                <div className="category-results">
+                    {entries.map((entry) => (
+                        <CompendiumCard 
+                            key={entry.id} 
+                            entry={entry}
+                        />
+                    ))}
+                </div>
+            </Container>
+
+
+        </section>
+        
     )
 }
 

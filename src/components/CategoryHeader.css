@@ -1,0 +1,7 @@
+.category-header {
+    padding-bottom: var(--space-lg);
+}
+
+.category-header__title {
+    font-size: var(--text-5xl);
+}

@@ -35,7 +35,7 @@
 .compendium-card__description {
     display: -webkit-box;
     line-clamp: 8;
-    -webkit-line-clamp: 8;
+    -webkit-line-clamp: 5;
     -webkit-box-orient: vertical;
     overflow: hidden;
     margin: var(--space-sm) 0px 0px;

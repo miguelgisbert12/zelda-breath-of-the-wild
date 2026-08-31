@@ -1,3 +1,4 @@
+import Container from "./Container"
 
 function SearchMenu({ isOpen, onToggle, variant = 'dropdown' }) {
 
@@ -6,23 +7,25 @@ function SearchMenu({ isOpen, onToggle, variant = 'dropdown' }) {
     if(isHome) {
 
         return(
-            <section className="search-menu search-menu--home">
-                <div className="navbar__menu__container">
-                    <h2>Buscador de Hyrule</h2>
+            <Container>
+                <section className="search-menu search-menu--home">
+                    <div className="navbar__menu__container">
+                        <h2>Buscador de Hyrule</h2>
 
-                    <form className="search-menu__form">
-                        <input 
-                            className="search-menu__input"
-                            type="search" 
-                            placeholder="Escribe aquí..."   
-                        />
+                        <form className="search-menu__form">
+                            <input 
+                                className="search-menu__input"
+                                type="search" 
+                                placeholder="Escribe aquí..."   
+                            />
 
-                        <button className="search-menu__button" type="submit">
-                            Buscar
-                        </button>
-                    </form>
-                </div>
-            </section>
+                            <button className="search-menu__button" type="submit">
+                                Buscar
+                            </button>
+                        </form>
+                    </div>
+                </section>
+            </Container>
         )
     }
 

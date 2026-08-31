@@ -1,0 +1,28 @@
+.category-results {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-lg);
+}
+
+/* Media Queries */
+
+@media (max-width: 1200px) {
+    
+    .category-results {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    
+    .category-results {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    
+    .category-results {
+        grid-template-columns: repeat(1fr);
+    }
+}
