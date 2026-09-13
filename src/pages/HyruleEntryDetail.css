@@ -1,0 +1,13 @@
+.entry-detail {
+    padding: var(--space-3xl) 0;
+}
+
+/* Media Queries */
+
+@media (max-width: 768px) {
+
+    .entry-detail {
+        padding: var(--space-2xl) 0;
+    }
+    
+}

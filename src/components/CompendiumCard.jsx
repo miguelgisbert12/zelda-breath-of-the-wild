@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom"
+
 import { getCategoryConfig } from "../utils/categoryConfig"
 import { getEntrySlug } from "../utils/getEntrySlug"
+import capitalizeWords from "../utils/capitalizeWords"
 
 import './CompendiumCard.css'
 
@@ -21,7 +23,7 @@ function CompendiumCard({ entry }) {
 
                 <div className="compendium-card__content">
                     <h2 className="compendium-card__title">
-                        {entry.name}
+                        {capitalizeWords(entry.name)}
                     </h2>
 
                     <p className="compendium-card__description">

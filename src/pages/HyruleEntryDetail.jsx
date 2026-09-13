@@ -1,12 +1,26 @@
-import { useParams } from "react-router-dom";
-import { getEntryUrl } from "../services/zeldaApi";
-import useFetch from "../hooks/useFetch";
+import { useParams } from 'react-router-dom'
+
+import { getEntryUrl } from '../services/zeldaApi'
+
+import useFetch from '../hooks/useFetch'
+
+import Container from '../components/Container'
+import EntryHeader from '../components/EntryHeader'
+import EntryInfo from '../components/EntryInfo'
+import EntryAttributes from '../components/EntryAttributes'
+
+import capitalizeWords from '../utils/capitalizeWords'
+import { getCategoryConfig } from '../utils/categoryConfig'
+
+import './HyruleEntryDetail.css'
+import Breadcrumb from '../components/Breadcrumb'
 
 function HyruleEntryDetail() {
 
-    const { category, entryId } = useParams()
+    const { entryId } = useParams()
 
     const url = getEntryUrl(entryId)
+
     const result = useFetch(url)
 
     const data = result.data
@@ -20,32 +34,39 @@ function HyruleEntryDetail() {
     }
 
     if(isLoading) {
-        return(
+        return (
             <p>Cargando...</p>
         )
     }
 
     if(error) {
-        return(
+        return (
             <p>No se ha podido cargar el elemento.</p>
         )
     }
 
     if(!entry) {
-        return(
+        return (
             <p>Elemento no encontrado.</p>
         )
     }
 
-    return(
-        <>
-            <h1>{entry.name}</h1>
+    const categoryConfig = getCategoryConfig(entry.category)
 
-            <img src={entry.image} alt={entry.name} />
+    return (
+        <section className="entry-detail">
+            <Container>
 
-            <p>{entry.description}</p>
-            <p>Categoría: {category}</p>
-        </>
+                <Breadcrumb category={categoryConfig} entryName={capitalizeWords(entry.name)} />
+
+                <EntryHeader entry={entry} />
+
+                <EntryInfo entry={entry} />
+
+                <EntryAttributes entry={entry} />
+
+            </Container>
+        </section>
     )
 }
 
