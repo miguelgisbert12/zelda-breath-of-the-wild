@@ -4,6 +4,22 @@
     gap: var(--space-lg);
 }
 
+.category__loading, .category__error {
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-secondary);
+}
+
+.category__no-results {
+    grid-column: 1 / -1;
+    margin: 0;
+    padding: var(--space-3xl);
+    text-align: center;
+    color: var(--color-text-secondary);
+}
+
 /* Media Queries */
 
 @media (max-width: 1200px) {

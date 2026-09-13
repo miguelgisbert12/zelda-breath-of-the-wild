@@ -1,6 +1,6 @@
 import './CategoryHeader.css'
 
-function CategoryHeader({ title, description, count }) {
+function CategoryHeader({ title, description, count, totalCount }) {
 
     return(
         <header className="category-header">
@@ -14,7 +14,7 @@ function CategoryHeader({ title, description, count }) {
             </p>
 
             <span className='category-header__count'>
-                {count} elementos
+                {count === totalCount ? `${totalCount} elementos` : `${count} de ${totalCount} elementos`}
             </span>
 
         </header>
