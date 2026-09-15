@@ -1,0 +1,106 @@
+.search-results {
+    padding: var(--space-3xl) 0;
+}
+
+.search-results h1 {
+    margin: 0px;
+}
+
+.search-results__form {
+    display: flex;
+    gap: var(--space-sm);
+    margin-top: var(--space-xl);
+}
+
+.search-results__input {
+    flex: 1;
+    padding: var(--space-md) var(--space-lg);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    color: var(--color-text);
+    font-family: var(--font-primary);
+    font-size: var(--text-md);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.search-results__input::placeholder {
+    color: var(--color-text-secondary);
+}
+
+.search-results__input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 2px var(--color-primary);
+}
+
+.search-results__button {
+    padding: var(--space-md) var(--space-lg);
+    background-color: var(--color-primary);
+    border: 1px solid var(--color-primary);
+    border-radius: var(--radius-md);
+    color: var(--color-text-tertiary);
+    font-family: var(--font-primary);
+    font-size: var(--text-md);
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.search-results__button:hover {
+    background-color: var(--color-secondary);
+    border-color: var(--color-secondary);
+    color: var(--color-primary);
+}
+
+.search-results__query {
+    margin: var(--space-lg) 0 0;
+    font-size: var(--text-lg);
+}
+
+.search-results__count {
+    margin: var(--space-sm) 0 0;
+    color: var(--color-text-secondary);
+}
+
+.search-results__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-lg);
+    margin-top: var(--space-2xl);
+}
+
+.search-results__no-results {
+    grid-column: 1 / -1;
+    margin: 0;
+    padding: var(--space-3xl);
+    text-align: center;
+    color: var(--color-text-secondary);
+}
+
+@media (max-width: 1200px) {
+
+    .search-results__grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .search-results__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .search-results__form {
+        flex-direction: column;
+    }
+
+    .search-results__grid {
+        grid-template-columns: 1fr;
+    }
+
+}

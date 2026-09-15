@@ -12,6 +12,7 @@ import Treasures from './pages/Treasures'
 
 import NotFound from './pages/NotFound'
 import HyruleEntryDetail from './pages/HyruleEntryDetail'
+import SearchResults from './pages/SearchResults'
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <Routes>
         <Route element={<MainLayout />}>
           <Route path="/" element={<Home />} />
+          <Route path="/buscar" element={<SearchResults />} />
           <Route path="/hyrule" element={<Hyrule />} />
           <Route path="/hyrule/enemigos" element={<Enemies />} />
           <Route path="/hyrule/criaturas" element={<Creatures />} />

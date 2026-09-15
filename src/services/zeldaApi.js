@@ -7,3 +7,7 @@ export function getCategoryUrl(category) {
 export function getEntryUrl(entryId) {
   return `${API_URL}/compendium/entry/${entryId}`
 }
+
+export function getAllEntriesUrl() {
+    return `${API_URL}/compendium/all`
+}

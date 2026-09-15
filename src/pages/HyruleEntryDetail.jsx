@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
 import { getEntryUrl } from '../services/zeldaApi'
 
@@ -58,6 +58,13 @@ function HyruleEntryDetail() {
             <Container>
 
                 <Breadcrumb category={categoryConfig} entryName={capitalizeWords(entry.name)} />
+
+                <Link
+                    className="entry-detail__back"
+                    to={`/hyrule/${categoryConfig.slug}`}
+                >
+                    Volver a {categoryConfig.title}
+                </Link>
 
                 <EntryHeader entry={entry} />
 

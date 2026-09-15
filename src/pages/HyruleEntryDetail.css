@@ -1,5 +1,20 @@
 .entry-detail {
-    padding: var(--space-3xl) 0;
+    padding: var(--space-3xl) 0px;
+}
+
+.entry-detail__back {
+    display: inline-block;
+
+    margin-bottom: var(--space-xl);
+
+    color: var(--color-primary);
+    text-decoration: none;
+
+    transition: color 0.2s ease;
+}
+
+.entry-detail__back:hover {
+    color: var(--color-gray900);
 }
 
 /* Media Queries */
@@ -7,7 +22,7 @@
 @media (max-width: 768px) {
 
     .entry-detail {
-        padding: var(--space-2xl) 0;
+        padding: var(--space-2xl) 0px;
     }
-    
+
 }

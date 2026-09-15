@@ -1,6 +1,22 @@
+import { useState } from "react"
+import { useNavigate } from "react-router-dom"
+
 import Container from "./Container"
 
 function SearchMenu({ isOpen, onToggle, variant = 'dropdown' }) {
+
+    const [searchTerm, setSearchTerm] = useState('')
+    const navigate = useNavigate()
+
+    const handleSearchSubmit = (event) => {
+        event.preventDefault()
+
+        if (!searchTerm.trim()) {
+            return
+        }
+
+        navigate(`/buscar?q=${encodeURIComponent(searchTerm.trim())}`)
+    }
 
     const isHome = variant === 'home'
 
@@ -12,10 +28,12 @@ function SearchMenu({ isOpen, onToggle, variant = 'dropdown' }) {
                     <div className="navbar__menu__container">
                         <h2>Buscador de Hyrule</h2>
 
-                        <form className="search-menu__form">
+                        <form className="search-menu__form" onSubmit={handleSearchSubmit}>
                             <input 
                                 className="search-menu__input"
                                 type="search" 
+                                value={searchTerm}
+                                onChange={(event) => setSearchTerm(event.target.value)}
                                 placeholder="Escribe aquí..."   
                             />
 
@@ -46,9 +64,11 @@ function SearchMenu({ isOpen, onToggle, variant = 'dropdown' }) {
                         <h3>Buscador de Hyrule</h3>
                         <p>Busca cualquier elemento de la web</p>
 
-                        <form className="search-menu__form">
+                        <form className="search-menu__form" onSubmit={handleSearchSubmit}>
                             <input 
                                 className="search-menu__input" 
+                                value={searchTerm}
+                                onChange={(event) => setSearchTerm(event.target.value)}
                                 type="search" 
                                 placeholder="Escribe aquí..." 
                             />
