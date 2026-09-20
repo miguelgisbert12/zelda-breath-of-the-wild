@@ -2,8 +2,28 @@ import { Router } from 'express'
 import { z } from 'zod'
 import prisma from '../lib/prisma.js'
 import { requireAuth, requireAdmin } from '../middleware/auth.js'
+import { importCompendiumEntries } from '../services/compendium.service.js'
 
 const router = Router()
+
+router.post('/import', requireAuth, requireAdmin, async (req, res) => {
+  try {
+    const imported = await importCompendiumEntries()
+
+    res.json({
+      success: true,
+      message: 'Compendio importado correctamente',
+      imported,
+    })
+  } catch (error) {
+    console.error(error)
+
+    res.status(502).json({
+      success: false,
+      message: 'No se ha podido importar el compendio',
+    })
+  }
+})
 
 const entrySchema = z.object({
   apiId: z.coerce.number().int().positive(),
@@ -12,6 +32,19 @@ const entrySchema = z.object({
   description: z.string().trim().nullable().optional(),
   image: z.string().url().nullable().optional(),
   isPublished: z.boolean().optional(),
+})
+
+router.get('/admin/all', requireAuth, requireAdmin, async (req, res) => {
+  const entries = await prisma.compendiumEntry.findMany({
+    orderBy: {
+      name: 'asc',
+    },
+  })
+
+  res.json({
+    success: true,
+    entries,
+  })
 })
 
 router.get('/', async (req, res) => {

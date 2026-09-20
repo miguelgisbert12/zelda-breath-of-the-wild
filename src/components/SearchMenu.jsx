@@ -29,6 +29,11 @@ function SearchMenu({ isOpen, onToggle, variant = 'dropdown' }) {
                         <h2>Buscador de Hyrule</h2>
 
                         <form className="search-menu__form" onSubmit={handleSearchSubmit}>
+
+                            <label htmlFor="home-search" className="sr-only">
+                                Buscar elementos del compendio
+                            </label>
+
                             <input 
                                 className="search-menu__input"
                                 type="search" 
@@ -65,6 +70,11 @@ function SearchMenu({ isOpen, onToggle, variant = 'dropdown' }) {
                         <p>Busca cualquier elemento de la web</p>
 
                         <form className="search-menu__form" onSubmit={handleSearchSubmit}>
+
+                            <label htmlFor="dropdown-search" className="sr-only">
+                                Buscar elementos del compendio
+                            </label>
+
                             <input 
                                 className="search-menu__input" 
                                 value={searchTerm}

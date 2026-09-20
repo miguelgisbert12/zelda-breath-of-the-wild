@@ -14,6 +14,9 @@ import NotFound from './pages/NotFound'
 import HyruleEntryDetail from './pages/HyruleEntryDetail'
 import SearchResults from './pages/SearchResults'
 
+import Login from './pages/Login'
+import Admin from './pages/Admin'
+
 function App() {
   return (
     <BrowserRouter>
@@ -30,6 +33,9 @@ function App() {
           <Route path="/hyrule/:category/:entryId" element={<HyruleEntryDetail/>} />
         </Route>
 
+        <Route path="/login" element={<Login />} />
+        <Route path="/acceso" element={<Login />} />
+        <Route path="/admin" element={<Admin />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>

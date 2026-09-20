@@ -23,4 +23,22 @@ dist-ssr
 *.sln
 *.sw?
 
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# SQLite database files
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+
+# Test and coverage output
+coverage
+.nyc_output
+
+# Windows files
+Thumbs.db
+
 /src/generated/prisma

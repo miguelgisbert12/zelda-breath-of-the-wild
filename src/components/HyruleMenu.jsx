@@ -10,8 +10,11 @@ function HyruleMenu({ isOpen, onToggle }) {
             <button 
                 type="button" 
                 className={`navbar__item navbar__item-hyrule ${isOpen ? 'navbar__item--open' : ''}`} 
-                onClick={onToggle}>
-
+                onClick={onToggle}
+                aria-expanded={isOpen}
+                aria-haspopup="true"
+                aria-label="Abrir menú de categorías de Hyrule"
+            >
                 <span>Hyrule</span>
                 <img className="icon__arrow-dropdown" src={flecha} alt="" />
             </button>
