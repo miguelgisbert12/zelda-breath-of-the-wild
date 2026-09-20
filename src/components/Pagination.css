@@ -37,3 +37,15 @@
     cursor: not-allowed;
 }
 
+@media (max-width: 480px) {
+    .pagination {
+        flex-wrap: wrap;
+        margin-top: var(--space-2xl);
+    }
+
+    .pagination button {
+        min-width: 38px;
+        padding: var(--space-sm);
+    }
+}
+

@@ -61,3 +61,14 @@
     font-weight: var(--font-semibold);
     text-align: center;
 }
+
+@media (max-width: 600px) {
+    .category-card__image {
+        height: 170px;
+    }
+
+    .category-card__title {
+        padding: var(--space-sm);
+        font-size: var(--text-lg);
+    }
+}
