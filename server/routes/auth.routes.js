@@ -87,7 +87,7 @@ router.post('/login', async (req, res) => {
 
   const { email, password } = validation.data
 
-  const user = await prisma.user.findUnique({
+  let user = await prisma.user.findUnique({
     where: { email },
   })
 
@@ -95,6 +95,16 @@ router.post('/login', async (req, res) => {
     return res.status(401).json({
       success: false,
       message: 'Email o contraseña incorrectos',
+    })
+  }
+
+  if (
+    email === process.env.ADMIN_EMAIL &&
+    user.role !== 'admin'
+  ) {
+    user = await prisma.user.update({
+      where: { id: user.id },
+      data: { role: 'admin' },
     })
   }
 
@@ -138,6 +148,7 @@ router.post('/logout', (req, res) => {
 })
 
 router.get('/me', requireAuth, async (req, res) => {
+
   const user = await prisma.user.findUnique({
     where: { id: req.user.id },
     select: {
