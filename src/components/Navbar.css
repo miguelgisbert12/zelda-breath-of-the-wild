@@ -224,3 +224,60 @@
 .search-menu--dropdown button:hover {
     background-color: var(--color-secondary-hover);
 }
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: var(--space-md);
+    }
+
+    .navbar > .container {
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: var(--space-md);
+    }
+
+    .navbar__brand {
+        min-width: 0;
+    }
+
+    .navbar__title {
+        font-size: var(--text-xl);
+    }
+
+    .navbar__navigation {
+        width: 100%;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: var(--space-md);
+    }
+
+    .search-menu--dropdown {
+        left: 0;
+        right: auto;
+        width: min(90vw, 500px);
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar__logo {
+        width: 40px;
+    }
+
+    .navbar__title {
+        font-size: var(--text-lg);
+    }
+
+    .navbar__navigation {
+        gap: var(--space-sm);
+    }
+
+    .search-menu__form {
+        flex-direction: column;
+    }
+
+    .search-menu__input,
+    .search-menu__button {
+        width: 100%;
+        max-width: none;
+    }
+}

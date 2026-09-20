@@ -85,3 +85,33 @@
 .hero__content {
     max-width: 700px;
 }
+
+@media (max-width: 768px) {
+    .hero {
+        min-height: 440px;
+    }
+
+    .hero__container {
+        gap: var(--space-lg);
+    }
+
+    .hero__image {
+        width: min(80vw, 320px);
+        height: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        min-height: 380px;
+    }
+
+    .hero__container {
+        align-items: center;
+        text-align: center;
+    }
+
+    .hero__content h1 {
+        font-size: var(--text-2xl);
+    }
+}

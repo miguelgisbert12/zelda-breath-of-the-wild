@@ -9,3 +9,17 @@
   padding-top: var(--space-3xl);
   padding-bottom: var(--space-3xl);
 }
+
+@media (max-width: 768px) {
+  .main-layout__content {
+    padding-top: var(--space-2xl);
+    padding-bottom: var(--space-2xl);
+  }
+}
+
+@media (max-width: 480px) {
+  .main-layout__content {
+    padding-top: var(--space-xl);
+    padding-bottom: var(--space-xl);
+  }
+}

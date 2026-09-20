@@ -41,3 +41,20 @@
     margin: var(--space-sm) 0px 0px;
     font-size: var(--text-sm);
 }
+
+@media (max-width: 600px) {
+    .compendium-card > a {
+        height: auto;
+        min-height: 240px;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .compendium-card__image {
+        height: 170px;
+    }
+
+    .compendium-card__content {
+        padding: var(--space-md);
+    }
+}

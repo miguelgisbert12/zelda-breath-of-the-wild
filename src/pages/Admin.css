@@ -155,4 +155,26 @@
   .admin-summary {
     grid-template-columns: 1fr;
   }
+
+  .admin-page {
+    padding: var(--space-xl) var(--space-sm);
+  }
+
+  .admin-panel,
+  .admin-summary article {
+    padding: var(--space-md);
+  }
+
+  .admin-header__actions {
+    width: 100%;
+  }
+
+  .admin-header__actions button {
+    flex: 1;
+  }
+
+  .admin-panel th,
+  .admin-panel td {
+    white-space: nowrap;
+  }
 }
