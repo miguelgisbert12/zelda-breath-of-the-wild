@@ -8,6 +8,8 @@ import Container from './Container'
 import './Navbar.css'
 import logo from '../assets/logos/logo_zelda_header.png'
 
+const API_URL = import.meta.env.VITE_API_URL
+
 function Navbar() {
 
   const [openMenu, setOpenMenu] = useState(null)
@@ -21,7 +23,7 @@ function Navbar() {
   useEffect(() => {
     async function loadCurrentUser() {
       try {
-        const response = await fetch('http://localhost:3000/api/auth/me', {
+        const response = await fetch(`${API_URL}/api/auth/me`, {
           credentials: 'include',
         })
 
@@ -64,7 +66,7 @@ function Navbar() {
   }
 
   async function handleLogout() {
-    await fetch('http://localhost:3000/api/auth/logout', {
+    await fetch(`${API_URL}/api/auth/logout`, {
       method: 'POST',
       credentials: 'include',
     })
