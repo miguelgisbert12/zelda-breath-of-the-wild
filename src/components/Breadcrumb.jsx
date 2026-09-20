@@ -6,9 +6,9 @@ function Breadcrumb({ category, entryName }) {
 
     return(
         <nav className='breadcrumb' aria-label='Migas de pan'>
-            <Link to="/hyrule">
+            <span>
                 Hyrule
-            </Link>
+            </span>
 
             <span className='breadcrumb__separator'>
                 &gt;
